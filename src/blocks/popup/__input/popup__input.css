@@ -13,6 +13,10 @@
 .popup__input:last-of-type {
   margin-bottom: 0;
 }
+/* Поля с ошибкой */
+.popup__input_type_error {
+  border-color: red;
+}
 
 @media screen and (max-width: 568px) {
   .popup__title {
