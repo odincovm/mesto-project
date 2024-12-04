@@ -2,10 +2,75 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
+  <style>
+    .card__like-button {
+      width: 21px;
+      height: 18px;
+      background: transparent url('../../../images/like-inactive.svg') no-repeat;
+      background-size: 21px 18px;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -ms-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+    }
+
+    .card__like-button:hover {
+      opacity: 0.6;
+    }
+
+    .card__like-container {
+      display: flex;
+      flex-direction: column; /* Вертикальное размещение */
+      align-items: center; /* Центрирование по горизонтали */
+      gap: 5px; /* Отступ между кнопкой и текстом */
+    }
+
+    .card__like-count {
+      font-size: 14px;
+      color: #000;
+    }
+
+    .profile__image {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+
+    .profile__image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('./images/edit-icon.svg') no-repeat center center;
+      background-size: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .profile__image:hover::after {
+      opacity: 1;
+    }
+
+    .popup_type_update-avatar .popup__form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  </style>
 </head>
 <body class="page">
 <div class="page__content">
@@ -89,6 +154,25 @@
     </div>
   </div>
 
+  <!-- Попап для обновления аватара -->
+  <div class="popup popup_type_update-avatar">
+    <div class="popup__content">
+      <button type="button" class="popup__close"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="popup__form popup__form_type_avatar" name="update-avatar-form">
+        <input
+                type="url"
+                name="avatar"
+                placeholder="Ссылка на картинку"
+                class="popup__input popup__input_type_avatar-url"
+                required
+        />
+        <span class="popup__error"></span>
+        <button type="submit" class="popup__button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
   <!-- Попап для изображения -->
   <div class="popup popup_type_image">
     <div class="popup__content popup__content_content_image">
@@ -105,7 +189,10 @@
     <button type="button" class="card__delete-button"></button>
     <div class="card__description">
       <h2 class="card__title"></h2>
-      <button type="button" class="card__like-button"></button>
+      <div class="card__like-container">
+        <button type="button" class="card__like-button"></button>
+        <span class="card__like-count">0</span>
+      </div>
     </div>
   </li>
 </template>
