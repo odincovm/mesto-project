@@ -1,3 +1,4 @@
 # Проектная работа Mesto
 
-студент, когорта, стэк
+ https://odincovm.github.io/mesto-project
+ 
