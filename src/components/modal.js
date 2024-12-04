@@ -13,7 +13,6 @@ function closeByEsc(evt) {
 // Функция для открытия поп-апа
 function openModal(popup) {
   popup.classList.add('popup_is-opened');
-  console.log("Поп - ап");
   // Сброс сообщений об ошибках
   const errorMessages = popup.querySelectorAll('.popup__error');
   errorMessages.forEach((errorElement) => {

@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-   entry: { main: './src/scripts/index.js' },  // Исправленный путь
+   entry: { main: './src/components/index.js' },
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'main.[contenthash].js',
@@ -13,10 +13,10 @@ module.exports = {
    },
   mode: 'development',
   devServer: {
-    static: path.resolve(__dirname, './dist'), // Папка для сервера
-    compress: true, // Сжатие
-    port: 8080, // Порт сервера
-    open: true, // Автооткрытие в браузере
+    static: path.resolve(__dirname, './dist'),
+    compress: true,
+    port: 8080,
+    open: true,
   },
   module: {
     rules: [
