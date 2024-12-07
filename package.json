@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-
     "dev": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -28,7 +27,7 @@
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
-    "webpack": "^5.96.1",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },
